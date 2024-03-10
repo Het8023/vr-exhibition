@@ -46,10 +46,13 @@ export let scene, camera, renderer, controls, css3dRenderer;
   controls = new OrbitControls(camera, renderer.domElement);
 
   // 垂直方向旋转角度
-  //   controls.maxPolarAngle = Math.PI * 0.25;
+  // controls.maxPolarAngle = Math.PI * 0.25;
 
-  //   关闭阻尼效果
-  controls.enableDamping = false;
+  // 开启阻尼效果
+  controls.enableDamping = true;
+
+  //   禁止滚动缩放
+  controls.enableZoom = false;
 })();
 
 // 将原生dom3d渲染到3D场景中
@@ -73,9 +76,9 @@ export let scene, camera, renderer, controls, css3dRenderer;
 // 坐标轴
 (function createHelper() {
   // 创建坐标轴
-  const axesHelper = new THREE.AxesHelper(8);
+  // const axesHelper = new THREE.AxesHelper(8);
   // 将坐标轴添加到场景中
-  scene.add(axesHelper);
+  // scene.add(axesHelper);
 })();
 
 // 场景适配

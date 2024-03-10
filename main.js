@@ -15,6 +15,9 @@ import { CSS3DObject } from "three/addons/renderers/CSS3DRenderer.js";
 // 创建分组
 let group = new THREE.Group();
 
+let video;
+let videoStatus;
+
 // 引入初始化场景
 import { scene, camera } from "./utils/init.js";
 
@@ -114,7 +117,7 @@ const sceneInfoObj = {
         // 物体的位置坐标
         position: [0.32, -0.16, -0.33],
         // 物体的旋转角度
-        rotation: [1.46, 0.1, -0.17],
+        rotation: [1.85, 0.1, -0.17],
         // 切换的下一个场景
         targetAttr: "four",
       },
@@ -186,9 +189,9 @@ const sceneInfoObj = {
         // 物体的宽度
         wh: [0.05, 0.05],
         // 物体的位置坐标
-        position: [0.05, 0.08, 0.46],
+        position: [-0.45, -0.14, -0.25],
         // 物体的旋转角度
-        rotation: [5.41, 2.91, 4.79],
+        rotation: [1.85, 2.58, 3.31],
         // 切换的下一个场景
         targetAttr: "six",
       },
@@ -203,6 +206,68 @@ const sceneInfoObj = {
         position: [0.49, 0.04, 0.045],
         // 物体的旋转角度
         rotation: [0, -0.5 * Math.PI, 0],
+      },
+    ],
+  },
+  // 第六个场景
+  six: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/6/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.31, -0.16, 0.37],
+        // 物体的旋转角度
+        rotation: [1.21, 2.67, 1.12],
+        // 切换的下一个场景
+        targetAttr: "five",
+      },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.14, -0.16, -0.45],
+        // 物体的旋转角度
+        rotation: [0.75, 0.29, 1.12],
+        // 切换的下一个场景
+        targetAttr: "seven",
+      },
+    ],
+  },
+  // 第七个场景
+  seven: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/7/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [0.11, -0.12, 0.46],
+        // 物体的旋转角度
+        rotation: [1.21, 3.22, -0.62],
+        // 切换的下一个场景
+        targetAttr: "six",
       },
     ],
   },
@@ -265,6 +330,7 @@ function setMaterialCube(infoObj) {
     // 如果场景里面存在标记点，则调用创建标记点方法
     if (item.name === "landMark") createLandMark(item);
     else if (item.name === "dom") createDomMark(item);
+    else if (item.name === "video") createVideoMark(item);
   });
   scene.add(group);
 }
@@ -328,6 +394,47 @@ function createDomMark(infoObj) {
   group.add(tag3d);
 }
 
+// 创建视频纹理
+function createVideoMark(infoObj) {
+  const { name, imgUrl, position, rotation, wh } = infoObj;
+
+  // 创建视频
+  video = document.createElement("video");
+  video.src = imgUrl;
+  video.muted = true;
+  // video.style.pointerEvents = "all";
+  video.addEventListener("loadedmetadata", () => {
+    video.play();
+    videoStatus = true;
+    video.muted = false;
+  });
+
+  // 创建纹理加载器
+  const texture = new THREE.VideoTexture(video);
+
+  // 创建图形
+  const geometry = new THREE.PlaneGeometry(...wh);
+  // 创建材质
+  const material = new THREE.MeshBasicMaterial({
+    map: texture,
+  });
+  // 创建物体
+  const plane = new THREE.Mesh(geometry, material);
+
+  // 设置位置
+  plane.position.set(...position);
+  // 设置旋转角度
+  plane.rotation.set(...rotation);
+
+  plane.name = name;
+
+  // gui工具
+  guiMove(plane);
+
+  // 添加到场景
+  group.add(plane);
+}
+
 // 清除上一个场景的标记点
 function clear() {
   // console.log(group);
@@ -358,12 +465,24 @@ function bindClick() {
     const intersects = raycaster.intersectObjects(scene.children);
 
     const obj = intersects.find((item) => item.object.name == "landMark");
+    const videoObj = intersects.find((item) => item.object.name === "video");
 
     if (obj) {
       // 当点击了标记点，切换场景的数据
       const infoObj = sceneInfoObj[obj.object.userData.targetAttr];
 
       if (infoObj) setMaterialCube(infoObj);
+    }
+
+    // 设置视频播放暂停
+    if (videoObj) {
+      if (videoStatus) {
+        video.pause();
+        videoStatus = false;
+      } else {
+        video.play();
+        videoStatus = true;
+      }
     }
   });
 }
