@@ -269,6 +269,248 @@ const sceneInfoObj = {
         // 切换的下一个场景
         targetAttr: "six",
       },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.4, -0.16, 0.02],
+        // 物体的旋转角度
+        rotation: [1.57, 2.58, -2],
+        // 切换的下一个场景
+        targetAttr: "eight",
+      },
+    ],
+  },
+  // 第八个场景
+  eight: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/8/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.14, -0.09, 0.46],
+        // 物体的旋转角度
+        rotation: [1.12, 2.94, -2],
+        // 切换的下一个场景
+        targetAttr: "seven",
+      },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [0.02, -0.18, -0.45],
+        // 物体的旋转角度
+        rotation: [1.94, 0.11, -2],
+        // 切换的下一个场景
+        targetAttr: "nine",
+      },
+    ],
+  },
+  // 第九个场景
+  nine: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/9/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.07, -0.12, 0.44],
+        // 物体的旋转角度
+        rotation: [0.93, 2.94, -2],
+        // 切换的下一个场景
+        targetAttr: "eight",
+      },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.05, -0.14, -0.47],
+        // 物体的旋转角度
+        rotation: [2.03, 0.02, -2],
+        // 切换的下一个场景
+        targetAttr: "ten",
+      },
+    ],
+  },
+  // 第十个场景
+  ten: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/10/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.07, -0.12, 0.44],
+        // 物体的旋转角度
+        rotation: [0.93, 2.94, -2],
+        // 切换的下一个场景
+        targetAttr: "nine",
+      },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.05, -0.14, -0.47],
+        // 物体的旋转角度
+        rotation: [2.03, 0.02, -2],
+        // 切换的下一个场景
+        targetAttr: "eleven",
+      },
+    ],
+  },
+  // 第十一个场景
+  eleven: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/11/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.18, -0.14, 0.46],
+        // 物体的旋转角度
+        rotation: [1.21, 2.94, -2],
+        // 切换的下一个场景
+        targetAttr: "ten",
+      },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.16, -0.16, -0.45],
+        // 物体的旋转角度
+        rotation: [1.85, 0.02, -2],
+        // 切换的下一个场景
+        targetAttr: "twelve",
+      },
+    ],
+  },
+  // 第十二个场景
+  twelve: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/12/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [0.28, -0.18, 0.46],
+        // 物体的旋转角度
+        rotation: [1.12, 3.31, -2],
+        // 切换的下一个场景
+        targetAttr: "eleven",
+      },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.05, -0.14, -0.47],
+        // 物体的旋转角度
+        rotation: [2.03, 0.02, -2],
+        // 切换的下一个场景
+        targetAttr: "thirteen",
+      },
+    ],
+  },
+  // 第十三个场景
+  thirteen: {
+    // 纹理加载的公共资源路径
+    publicPath: "technology/13/",
+    // 纹理加载需要加载的图片资源
+    imgUrlArr: ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
+    // 准备标记点的数据, 当前空间中所有标记信息对象
+    markList: [
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [0.24, -0.2, 0.46],
+        // 物体的旋转角度
+        rotation: [1.12, 3.4, -2],
+        // 切换的下一个场景
+        targetAttr: "twelve",
+      },
+      {
+        // 标记点名称
+        name: "landMark",
+        // 标记点图片的路径
+        imgUrl: "other/landmark.png",
+        // 物体的宽度
+        wh: [0.05, 0.05],
+        // 物体的位置坐标
+        position: [-0.06, -0.14, -0.47],
+        // 物体的旋转角度
+        rotation: [2.03, 0.02, -2],
+        // 切换的下一个场景
+        targetAttr: "fourteen",
+      },
     ],
   },
 };
