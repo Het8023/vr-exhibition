@@ -899,7 +899,7 @@ function createLandMark(infoObj) {
   plane.userData.targetAttr = targetAttr;
 
   // 调用gui工具
-  guiMove(plane);
+  // guiMove(plane);
 
   group.add(plane);
 
@@ -961,7 +961,7 @@ function createVideoMark(infoObj) {
   plane.name = name;
 
   // gui工具
-  guiMove(plane);
+  // guiMove(plane);
 
   // 添加到场景
   group.add(plane);
