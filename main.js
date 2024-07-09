@@ -195,18 +195,18 @@ const sceneInfoObj = {
         // 切换的下一个场景
         targetAttr: "six",
       },
-      {
-        // 标记点名称
-        name: "video",
-        // 视频路径
-        imgUrl: "video/movie.mp4",
-        // 物体的宽高
-        wh: [0.2, 0.1],
-        // 物体的位置坐标
-        position: [0.49, 0.04, 0.045],
-        // 物体的旋转角度
-        rotation: [0, -0.5 * Math.PI, 0],
-      },
+      // {
+      //   // 标记点名称
+      //   name: "video",
+      //   // 视频路径
+      //   imgUrl: "video/movie.mp4",
+      //   // 物体的宽高
+      //   wh: [0.2, 0.1],
+      //   // 物体的位置坐标
+      //   position: [0.49, 0.04, 0.045],
+      //   // 物体的旋转角度
+      //   rotation: [0, -0.5 * Math.PI, 0],
+      // },
     ],
   },
   // 第六个场景
